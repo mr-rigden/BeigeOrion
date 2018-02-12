@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+<div class="row align-items-center">
+    <div class="col-md-6 offset-md-3">
+
+
+
+
+
+        <p class="lead text-center">{{CONFIG.DESCRIPTION}}</p>
+        <div class="list-group">
+            {% for subject in CONFIG.SUBJECTS %}
+            <a href="{{CONFIG.BASE_URL}}/{{subject.SCREEN_NAME}}" class="text-center list-group-item list-group-item-action">
+                <h5 class="mb-1">{{subject.NAME}}</h5>
+                <p class="mb-1">{{subject.DESCRIPTION}}</p>
+            </a>
+            {% endfor %}
+        </div>
+
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock %}

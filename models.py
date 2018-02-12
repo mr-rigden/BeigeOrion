@@ -19,11 +19,22 @@ class Follower(BaseModel):
 
 
 class Relationship(BaseModel):
-    subject = ForeignKeyField(Subject)
-    follower = ForeignKeyField(Follower)
+    subject = ForeignKeyField(Subject, index=True)
+    follower = ForeignKeyField(Follower, index=True)
 
     class Meta:
         indexes = ((('subject', 'follower'), True), )
 
 
-db.create_tables([Subject, Follower, Relationship])
+class Quality_Report(BaseModel):
+    subject = ForeignKeyField(Subject, index=True)
+    epoch_time = IntegerField(index=True)
+    total = IntegerField()
+    very_good = IntegerField()
+    good = IntegerField()
+    neutral = IntegerField()
+    poor = IntegerField()
+    very_poor = IntegerField()
+
+
+db.create_tables([Subject, Follower, Relationship, Quality_Report])

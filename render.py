@@ -1,8 +1,10 @@
+import json
 import os.path
 
 from jinja2 import Environment, FileSystemLoader
 
 from config import CONFIG
+import quality_control
 
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
@@ -17,12 +19,11 @@ def save_index_page():
 
 
 def save_subject_page(subject):
-    print('fuck you')
-    file_name = subject['SCREEN_NAME']
+    data = quality_control.get_full_quality_report(subject['SCREEN_NAME'])
+    file_name = subject['SCREEN_NAME'] + ".html"
     file_path = os.path.join(output_dir, file_name)
-    print(file_path)
     template = env.get_template('subject.html')
-    output = template.render(CONFIG=CONFIG, subject=subject)
+    output = template.render(CONFIG=CONFIG, subject=subject, data=data)
     with open(file_path, 'w') as f:
         f.write(output)
 

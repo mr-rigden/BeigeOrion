@@ -2,24 +2,25 @@
 <div class="row align-items-center">
     <div class="col-md-6 offset-md-3">
 
-
-
-
-
-        <p class="lead text-center">{{CONFIG.DESCRIPTION}}</p>
+        <p class="lead text-center">
+            {{CONFIG.DESCRIPTION}}<br><a href="{{CONFIG.EXTERNAL_LINK_URL}}">{{CONFIG.EXTERNAL_LINK_TEXT}}</a>
+        </p>
         <div class="list-group">
             {% for subject in CONFIG.SUBJECTS %}
-            <a href="{{CONFIG.BASE_URL}}/{{subject.SCREEN_NAME}}" class="text-center list-group-item list-group-item-action">
+            <a href="{{CONFIG.BASE_URL}}/{{subject.SCREEN_NAME}}.html" class="text-center list-group-item list-group-item-action">
                 <h5 class="mb-1">{{subject.NAME}}</h5>
                 <p class="mb-1">{{subject.DESCRIPTION}}</p>
             </a>
             {% endfor %}
         </div>
-
-
-
-
-
+        <br>
+        <div class="text-center">
+                <strong>Share:</strong><br>
+                <ul class="share-buttons">
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=&quote=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-facebook-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.getElementsByName('description')[0].getAttribute('content')) + '%0A' + encodeURIComponent(document.URL)); return false;"><i class="fab fa-twitter-square fa-3x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+                </ul>
+        </div>
 
 
     </div>

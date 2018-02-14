@@ -102,3 +102,6 @@ ENV/
 
 #BeigeOrion
 /output
+data.db
+download.py
+log.txt

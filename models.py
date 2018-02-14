@@ -1,6 +1,10 @@
-from peewee import *
+import os
 
-db = SqliteDatabase('data.db')
+from peewee import *
+import utils
+
+db_path = os.path.join(utils.get_code_dir(), "data.db")
+db = SqliteDatabase(db_path)
 
 
 class BaseModel(Model):

@@ -53,7 +53,7 @@ const myChart = new Chart(ctx, {
             borderColor: colors.red.stroke,
             pointHighlightStroke: colors.red.stroke,
             borderCapStyle: "butt",
-            data: subject_data.veryPoor
+            data: subject_data.very_poor
 
         }, {
             label: "Poor",

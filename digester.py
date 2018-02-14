@@ -43,8 +43,8 @@ def add_subject(screen_name):
     twitter_data = user = api.get_user(screen_name)
 
     record, created = models.Subject.get_or_create(
-        screen_name=user.screen_name, id_str=user.id_str)
-
+        screen_name=screen_name, id_str=user.id_str)
+    record.save()
     if not created:
         logger.info('    Record already exits')
 
@@ -95,6 +95,7 @@ def add_relationship(subject, follower):
 def delete_relationships(screen_name):
     logger.info('Deleting all relationships for: {}'.format(screen_name))
     subject = models.Subject.get(models.Subject.screen_name == screen_name)
+
     models.Relationship().delete().where(
         models.Relationship.subject == subject).execute()
 

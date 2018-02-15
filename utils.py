@@ -1,3 +1,4 @@
+import json
 import logging
 import logging.handlers
 import os
@@ -7,6 +8,11 @@ import sys
 def get_code_dir():
     return os.path.dirname(os.path.realpath(__file__))
 
+
+config_file_path = os.path.join(get_code_dir(), "config.json")
+f = open(config_file_path, "r")
+CONFIG = json.load(f)
+f.close()
 
 log_path = os.path.join(get_code_dir(), "log.txt")
 logger = logging.getLogger('BeigeOrion')

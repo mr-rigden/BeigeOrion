@@ -1,6 +1,5 @@
 import time
 
-from config import CONFIG
 import models
 from utils import *
 

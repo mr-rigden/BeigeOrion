@@ -3,8 +3,14 @@ import os
 from peewee import *
 import utils
 
-db_path = os.path.join(utils.get_code_dir(), "data.db")
-db = SqliteDatabase(db_path)
+#db_path = os.path.join(utils.get_code_dir(), "data.db")
+#db = SqliteDatabase(db_path)
+db = PostgresqlDatabase(
+    database='laserbeakdb',
+    user='laserbeak',
+    password='hw@4KRJ48Thy!D8NbXeB6RGF*X#H*z',
+    host='45.33.42.91',
+    port=5432)
 
 
 class BaseModel(Model):

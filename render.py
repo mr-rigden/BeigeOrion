@@ -3,7 +3,6 @@ import os.path
 
 from jinja2 import Environment, FileSystemLoader
 
-from config import CONFIG
 import quality_control
 
 file_loader = FileSystemLoader('templates')

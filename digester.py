@@ -3,7 +3,6 @@ import peewee
 import tweepy
 
 import api_keys
-from config import CONFIG
 import models
 from utils import *
 

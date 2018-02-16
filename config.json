@@ -1,9 +1,10 @@
 {
-    "TITLE": "",
+    "TITLE": "test",
     "DESCRIPTION": "",
+    "BASE_URL": "",
+    "OUTPUT_DIR": "",
     "EXTERNAL_LINK_URL": "",
     "EXTERNAL_LINK_TEXT": "",
-    "BASE_URL": "",
     "GROUP": {
         "DESCRIPTION": "",
         "NAME": ""

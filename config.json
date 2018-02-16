@@ -1,52 +1,16 @@
 {
-    "TITLE": "8th.SeattleBot.net",
-    "DESCRIPTION": "This site attempts watch twitter bot activity in the Washington's 8th Congressional District Election for 2018.",
+    "TITLE": "",
+    "DESCRIPTION": "",
     "EXTERNAL_LINK_URL": "",
     "EXTERNAL_LINK_TEXT": "",
-    "BASE_URL": "http://127.0.0.1:35729",
+    "BASE_URL": "",
     "GROUP": {
-        "DESCRIPTION": "washington congressional district 8 candidates",
-        "NAME": "Washington Congressional District 8th Candidates"
+        "DESCRIPTION": "",
+        "NAME": ""
     },
     "SUBJECTS": [{
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "grassie2018",
-            "NAME": "Bill Grassie"
-        },
-        {
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "DinoRossiWA",
-            "NAME": "Dino Rossi"
-        },
-        {
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "DrKimSchrier",
-            "NAME": "Dr. Kim Schrier"
-        },
-        {
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "jrittereiser",
-            "NAME": "Jason Rittereiser"
-        },
-        {
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "Brayden_W_Olson",
-            "NAME": "Brayden Olson"
-        },
-        {
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "votekostenko",
-            "NAME": "Brian Kostenko"
-        },
-        {
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "VoteRobertH",
-            "NAME": "Robert Hunziker"
-        },
-        {
-            "DESCRIPTION": "",
-            "SCREEN_NAME": "ShannonHader",
-            "NAME": "Shannon Hader"
-        }
-    ]
+        "DESCRIPTION": "",
+        "SCREEN_NAME": "",
+        "NAME": ""
+    }]
 }

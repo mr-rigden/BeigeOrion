@@ -3,8 +3,9 @@ import os
 from peewee import *
 import utils
 
-#db_path = os.path.join(utils.get_code_dir(), "data.db")
-#db = SqliteDatabase(db_path)
+db_path = os.path.join(utils.get_code_dir(), "data.db")
+db = SqliteDatabase(db_path)
+
 # db = PostgresqlDatabase(
 #     database='',
 #     user='',

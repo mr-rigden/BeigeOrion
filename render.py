@@ -6,7 +6,8 @@ from jinja2 import Environment, FileSystemLoader
 import quality_control
 from utils import *
 
-file_loader = FileSystemLoader('templates')
+template_dir = os.path.join(get_code_dir(), "templates")
+file_loader = FileSystemLoader(template_dir)
 env = Environment(loader=file_loader)
 
 

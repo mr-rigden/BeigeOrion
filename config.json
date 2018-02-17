@@ -1,17 +1,21 @@
 {
-    "TITLE": "test",
-    "DESCRIPTION": "",
+    "ROOT_NAV_TEXT": "",
+    "ROOT_NAV_URL": "",
+
+    "SUB_NAV_TEXT": "",
+    "SUB_NAV_URL": "",
+
+    "GROUP_TITLE": " ",
+    "GROUP_DESCRIPTION": "",
+
     "BASE_URL": "",
     "OUTPUT_DIR": "",
-    "EXTERNAL_LINK_URL": "",
-    "EXTERNAL_LINK_TEXT": "",
-    "GROUP": {
-        "DESCRIPTION": "",
-        "NAME": ""
-    },
+
+
+
     "SUBJECTS": [{
-        "DESCRIPTION": "",
-        "SCREEN_NAME": "",
-        "NAME": ""
+        "DESCRIPTION": "some idiot",
+        "SCREEN_NAME": "mr_rigden",
+        "NAME": "jason"
     }]
 }

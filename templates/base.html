@@ -23,15 +23,18 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="{{CONFIG.BASE_URL}}">{{CONFIG.TITLE}}</a>
+            <a class="navbar-brand" href="{{CONFIG.ROOT_NAV_URL}}">{{CONFIG.ROOT_NAV_TEXT}}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{CONFIG.SUB_NAV_URL}}">{{CONFIG.SUB_NAV_TEXT}}</a>
+                    </li>
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{CONFIG.GROUP.NAME}}
+                            {{CONFIG.GROUP_TITLE}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% for subject in CONFIG.SUBJECTS %}
@@ -41,11 +44,7 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto ">
-                    <li class="nav-item active">
-                        <a href="https://github.com/jrigden/BeigeOrion/blob/master/SITES.md" class="nav-link">More Sites Like This</a>
-                    </li>
-                </ul>
+
 
             </div>
         </nav>

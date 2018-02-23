@@ -1,4 +1,6 @@
+import digester
 import quality_control
+
 from utils import *
 
 if __name__ == "__main__":

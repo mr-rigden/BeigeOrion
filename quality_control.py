@@ -16,6 +16,8 @@ def get_subject_follower_quality(screen_name):
     logger.info('Checking Quality for subject: {}'.format(screen_name))
     chunk = 1 / 6
     quality = {}
+    quality['no_timeline'] = 0
+    quality['protected'] = 0
     quality['very_good'] = 0
     quality['good'] = 0
     quality['neutral'] = 0
@@ -31,6 +33,18 @@ def get_subject_follower_quality(screen_name):
         if score is None:
             logger.info('   Follower has no score')
             continue
+
+        if score == -1:
+            quality['no_timeline'] += 1
+            logger.info('   No Timeline Account')
+            continue
+
+        if score == -2:
+            quality['protected'] += 1
+            logger.info('   Protected Account')
+            continue
+
+
         if score < chunk:
             quality['very_good'] += 1
             logger.info('   Score of {} is Very Good'.format(score))
@@ -63,6 +77,8 @@ def add_quality_report(screen_name):
     quality_report.poor = quality['poor']
     quality_report.very_poor = quality['very_poor']
     quality_report.total = quality['total']
+    quality_report.no_timeline = quality['no_timeline']
+    quality_report.protected = quality['protected']
     quality_report.save()
 
 
@@ -74,6 +90,8 @@ def get_full_quality_report(screen_name):
     data['neutral'] = []
     data['poor'] = []
     data['very_poor'] = []
+    data['no_timeline'] = []
+    data['protected'] = []
     data['total'] = []
     subject = models.Subject.get(models.Subject.screen_name == screen_name)
     query = models.Quality_Report.select().where(
@@ -86,6 +104,8 @@ def get_full_quality_report(screen_name):
         data['neutral'].append(each.neutral)
         data['poor'].append(each.poor)
         data['very_poor'].append(each.very_poor)
+        data['no_timeline'].append(each.no_timeline)
+        data['protected'].append(each.protected)
         data['total'].append(each.total)
     data['bot_percent'] = round(
         (data['very_poor'][-1] / data['total'][-1] * 100))

@@ -13,6 +13,7 @@ env = Environment(loader=file_loader)
 
 def save_index_page():
     file_path = os.path.join(CONFIG['OUTPUT_DIR'], "index.html")
+    print(file_path)
     template = env.get_template('index.html')
     output = template.render(CONFIG=CONFIG)
     with open(file_path, 'w') as f:

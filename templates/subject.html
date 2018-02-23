@@ -6,10 +6,12 @@
     <hr>
     <div class="card-body">
         <h1 class="card-title">
-                    {{subject.NAME}} - <a href="https://twitter.com/{{subject.SCREEN_NAME}}" class="card-link">@{{subject.SCREEN_NAME}}</a>
-                </h1>
+                    {{subject.NAME}}
+        </h1>
+        <h4 class="card-subtitle mb-2 text-muted">
+            <a href="https://twitter.com/{{subject.SCREEN_NAME}}" class="card-link">@{{subject.SCREEN_NAME}}</a>
+        </h4>
         <h5 class="card-subtitle mb-2 text-muted">{{subject.DESCRIPTION}}</h5>
-
         <p class="card-text">{{ data.headline }}</p>
         <strong>Share:</strong><br>
         <ul class="share-buttons">

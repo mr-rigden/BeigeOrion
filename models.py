@@ -46,6 +46,8 @@ class Quality_Report(BaseModel):
     neutral = IntegerField()
     poor = IntegerField()
     very_poor = IntegerField()
+    no_timeline = IntegerField()
+    protected = IntegerField()
 
 
 db.create_tables([Subject, Follower, Relationship, Quality_Report])

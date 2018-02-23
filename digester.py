@@ -1,3 +1,5 @@
+import time
+
 import botometer
 import peewee
 import tweepy
@@ -99,6 +101,22 @@ def delete_relationships(screen_name):
         models.Relationship.subject == subject).execute()
 
 
+def set_botometer(follower):
+    logger.info('Setting botometer for {}'.format(follower.id_str))
+    try:
+        score = bom.check_account(follower.id_str)['scores']['universal']
+    except botometer.NoTimelineError:
+        logger.error('Botometer FAIL: Follower {} has no timeline'.format(
+            follower.id_str))
+        score = -1
+    except tweepy.error.TweepError:
+        logger.error('Botometer FAIL: Not authorized {}'.format(
+            follower.id_str))
+        score = -2
+    follower.botometer = score
+    logger.info('    Score of {}'.format(score))
+    follower.save()
+
 def set_missing_botometers():
     logger.info('Setting missing botometers')
     followers = models.Follower.select().where(
@@ -107,22 +125,27 @@ def set_missing_botometers():
         set_botometer(follower)
         left = models.Follower.select().where(
             models.Follower.botometer == None).count()
-        total = models.Follower.select().count()
         logger.info('{} missing botometers left'.format(left))
 
 
-def set_botometer(follower):
-    logger.info('Setting botometer for {}'.format(follower.id_str))
-    try:
-        score = bom.check_account(follower.id_str)['scores']['universal']
-    except botometer.NoTimelineError:
-        logger.error('Botometer FAIL: Follower {} has no timeline'.format(
-            follower.id_str))
-        score = 1
-    except tweepy.error.TweepError:
-        logger.error('Botometer FAIL: Not authorized {}'.format(
-            follower.id_str))
-        score = 1
-    follower.botometer = score
-    logger.info('    Score of {}'.format(score))
-    follower.save()
+
+def set_random_missing_botometers():
+    logger.info('Setting missing botometers')
+    more = True
+    while more:
+        follower = models.Follower.select().where(models.Follower.botometer == None).order_by(peewee.fn.Random()).limit(1)
+        if len(follower) == 0:
+            more = False
+            logger.info('No more missing botometers left')
+            continue
+        set_botometer(follower[0])
+        left = models.Follower.select().where(
+            models.Follower.botometer == None).count()
+        logger.info('{} missing botometers left'.format(left))
+
+    
+
+
+
+
+

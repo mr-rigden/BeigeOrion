@@ -19,6 +19,14 @@ const colors = {
         fill: "#FF0000",
         stroke: "#B20000",
     },
+    gray: {
+        fill: "#787878",
+        stroke: "#404040",
+    },
+    black: {
+        fill: "#202020",
+        stroke: "#000000",
+    },
 };
 var timeFormat = 'MM/DD/YYYY HH:mm';
 
@@ -45,6 +53,28 @@ const myChart = new Chart(ctx, {
         label: "# of Votes",
         labels: xTime,
         datasets: [{
+            label: "No Timeline",
+            position: "bottom",
+            fill: true,
+            backgroundColor: colors.black.fill,
+            pointBackgroundColor: colors.black.stroke,
+            borderColor: colors.black.stroke,
+            pointHighlightStroke: colors.black.stroke,
+            borderCapStyle: "butt",
+            data: subject_data.no_timeline
+
+        }, {
+            label: "Protected",
+            position: "bottom",
+            fill: true,
+            backgroundColor: colors.gray.fill,
+            pointBackgroundColor: colors.gray.stroke,
+            borderColor: colors.gray.stroke,
+            pointHighlightStroke: colors.gray.stroke,
+            borderCapStyle: "butt",
+            data: subject_data.protected
+
+        }, {
             label: "Very Poor",
             position: "bottom",
             fill: true,

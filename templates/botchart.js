@@ -11,7 +11,7 @@ const colors = {
         fill: "#FFFF00",
         stroke: "#B2B200",
     },
-    orange: {
+    orange: {https://www.facebook.com/topic/Ivanka-Trump/115040395176915?source=whrt&position=5&trqid=6526906348958632483&impressionguid=0sEHchVVHpBFpFcLO
         fill: "#FF7F00",
         stroke: "#B25900",
     },
@@ -145,12 +145,12 @@ const myChart = new Chart(ctx, {
                     labelString: "Followers"
                 }
             }],
-            xAxes: [{
-                type: "time",
+           xAxes: [{
+                type: 'time',
+                distribution: 'linear',
                 time: {
-                    tooltipFormat: ' MMMM, Qo YYYY'
-                },
-
+                    unit: 'day'
+                }
             }],
         },
         title: {
